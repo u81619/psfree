@@ -2,56 +2,50 @@
 <html manifest="./PSFree.manifest" lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8">
-    <title>PSFree | 9.00</title>
-    <link rel="stylesheet" href="./css/index.css">
+    <title>هسوت معرض اياد القريشي</title>
+    <link rel='stylesheet' href='./css/index.css'>
     <script>
-      function DLProgress(e) {
-        Percent = (Math.round(e.loaded / e.total * 100));
-        document.title = "جارٍ تثبيت التخزين المؤقت: " + Percent + "%";
+      function DLProgress(e){
+        let Percent = (Math.round(e.loaded / e.total * 100));
+        document.title = "جاري تثبيت التخزين المؤقت: " + Percent + "%";
       }
-      function DisplayCacheProgress() {
-        setTimeout(function () {
-          document.title = "تم الحفظ بنجاح!";
-        }, 1000);
-        setTimeout(function () {
-          window.location.href = document.referrer;
-        }, 3000);
+      function DisplayCacheProgress(){
+        setTimeout(() => { document.title = "تم التخزين المؤقت بنجاح!"; }, 1000);
+        setTimeout(() => { window.location.href = document.referrer; }, 3000);
       }
       window.applicationCache.addEventListener("progress", DLProgress, false);
-      window.applicationCache.oncached = function (e) {
-        DisplayCacheProgress();
-      };
-      window.applicationCache.onupdateready = function (e) {
-        DisplayCacheProgress();
-      };
+      window.applicationCache.oncached = function(){ DisplayCacheProgress(); };
+      window.applicationCache.onupdateready = function(){ DisplayCacheProgress(); };
     </script>
   </head>
   <body>
     <!-- القائمة العائمة -->
     <div class="floating-menu">
       <button onclick="showpayloads()" class="menu-btn" id="payloadsbtn">الحمولات</button>
-      <button class="menu-btn" id="generate-cache-btn">فرض التخزين</button>
+      <button class="menu-btn" id="generate-cache-btn">فرض التخزين المؤقت</button>
       <button class="menu-btn" id="update-exploit">تحديث الثغرة</button>
       <button onclick="showabout()" class="menu-btn" id="about-btn">حول</button>
     </div>
 
     <div class="header">
-      <div class="header-title">PSFree</div>
+      <div class="header-title">معرض اياد القريشي للتواصل: 07731115006</div>
     </div>
 
     <pre id="update-results" style="white-space: pre-wrap; margin-top: 10px;"></pre>
 
-    <h2 id="PS4FW">إصدار PS4: 0.00 | متوافق</h2>
+    <h2 id="PS4FW">متوافق مع نظام 9.00</h2>
 
     <div id="jailbreak-page">
       <div class="center-btn-wrap">
         <button id="jailbreak" class="ps-btn" title="بلايستيشن">
-          <!-- أيقونة بلايستيشن -->
-          <!-- ... SVG remains unchanged ... -->
+          <!-- شعار بلايستيشن -->
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g><path d="M0.69116 21.9548C-0.506476 22.7935 -0.284724 24.2384 2.44769 25.1419C5.18011 26.0455 8.35603 26.2323 11.1505 25.729C11.0707 25.729 11.3102 25.729 11.1505 25.729V22.8774L8.43588 23.8C7.39792 24.1355 6.35997 24.2194 5.32202 23.9677C4.5236 23.7161 4.68328 23.2129 5.64139 22.7935L11.1505 20.7806V17.6774L3.48565 20.4452C2.52754 20.7806 1.56943 21.2839 0.69116 21.9548ZM19.2146 9.37419V17.5097C22.4881 19.1871 25.0431 17.5097 25.0431 13.1484C25.0431 8.70323 23.5261 6.69032 19.1348 5.09677C16.8193 4.25806 14.4241 3.50323 12.0288 3V27.2387L17.6178 29V8.61935C17.6178 7.69677 17.6178 7.02581 18.2565 7.27742C19.1348 7.52903 19.2146 8.45161 19.2146 9.37419ZM29.5941 20.0258C27.2787 19.1871 24.8036 18.8516 22.4083 19.1032C21.0779 19.1906 19.8294 19.5869 18.5759 20.0258V23.2968L23.7656 21.2839C24.8036 20.9484 25.8415 20.8645 26.8795 21.1161C27.6779 21.3677 27.5182 21.871 26.5601 22.2903L18.5759 25.3935V28.5806L29.5941 24.3032C30.3925 23.9677 31.1111 23.5484 31.7499 22.8774C32.3088 22.0387 32.0692 20.8645 29.5941 20.0258Z"></path></g>
+          </svg>
         </button>
         <label>
           <input type="checkbox" id="autogoldhen" />
-          <p>تفعيل GoldHEN تلقائياً</p>
+          <p>تشغيل GoldHEN تلقائيًا</p>
         </label>
       </div>
     </div>
@@ -62,76 +56,70 @@
         <button onclick="showgamepayloads()">ألعاب</button>
         <button onclick="showlinuxpayloads()">لينكس</button>
       </nav>
-
       <div id="payloads-tools" style="display: block;">
-        <h2>أدوات</h2>
+        <h2>الأدوات</h2>
         <div id="button-container">
-          <button data-func="load_AppDumper">تفريغ التطبيقات</button>
-          <button data-func="load_KernelDumper">تفريغ النواة</button>
-          <button data-func="load_VTXDumper">تفريغ VTX</button>
-          <button data-func="load_App2USB">نقل التطبيقات إلى USB</button>
+          <button data-func="load_AppDumper">استخراج التطبيقات</button>
+          <button data-func="load_KernelDumper">استخراج النواة</button>
+          <button data-func="load_VTXDumper">استخراج VTX</button>
+          <button data-func="load_App2USB">نقل تطبيق لـ USB</button>
           <button data-func="load_DisableUpdates">تعطيل التحديثات</button>
           <button data-func="load_EnableUpdates">تفعيل التحديثات</button>
-          <button data-func="load_FTP">FTP</button>
-          <button data-func="load_HistoryBlocker">حظر السجل</button>
-          <button data-func="load_KernelClock">ساعة النواة</button>
-          <button data-func="load_Orbis">أوربيس تول بوكس</button>
-          <button data-func="load_PS4Debug">تصحيح PS4</button>
-          <button data-func="load_ToDex">التحويل إلى DEX</button>
-          <button data-func="load_ToCex">التحويل إلى CEX</button>
+          <button data-func="load_FTP">تشغيل FTP</button>
+          <button data-func="load_HistoryBlocker">مانع السجل</button>
+          <button data-func="load_KernelClock">ساعة النظام</button>
+          <button data-func="load_Orbis">Orbis Toolbox</button>
+          <button data-func="load_PS4Debug">PS4 Debug</button>
+          <button data-func="load_ToDex">تحويل إلى DEX</button>
+          <button data-func="load_ToCex">تحويل إلى CEX</button>
           <button data-func="load_BackupDB">نسخ قاعدة البيانات</button>
           <button data-func="load_RestoreDB">استعادة قاعدة البيانات</button>
           <button data-func="load_RIFRenamer">إعادة تسمية RIF</button>
-          <button data-func="load_ExitIDU">الخروج من وضع IDU</button>
+          <button data-func="load_ExitIDU">خروج من وضع IDU</button>
           <button data-func="load_DisableASLR">تعطيل ASLR</button>
-          <button data-func="load_ModuleDumper">تفريغ الوحدات</button>
+          <button data-func="load_ModuleDumper">استخراج الوحدات</button>
           <button data-func="load_WebrRTE">WebRTE</button>
-          <button data-func="load_PermanentUART">تفعيل UART دائم</button>
+          <button data-func="load_PermanentUART">تشغيل UART دائم</button>
           <button data-func="load_PUPDecrypt">فك تشفير PUP</button>
         </div>
       </div>
-
       <div id="payloads-game" style="display: none;">
         <h2>ألعاب</h2>
         <div id="button-container">
-          <button data-func="load_GTAArbic">GTA V - عربي 1.27</button>
-          <button data-func="load_GTAArbic3">GTA V - عربي 1.32</button>
-          <button data-func="load_GTAArbic33">GTA V - عربي 1.33</button>
-          <button data-func="load_Oysters100">RDR2 - Oysters 1.00</button>
-          <button data-func="load_Oysters113">RDR2 - Oysters 1.13</button>
-          <button data-func="load_Oysters119">RDR2 - Oysters 1.19</button>
-          <button data-func="load_Oysters124">RDR2 - Oysters 1.24</button>
+          <button data-func="load_GTAArbic">GTA V - ArabicGuy 1.27</button>
+          <button data-func="load_GTAArbic3">GTA V - ArabicGuy 1.32</button>
+          <button data-func="load_GTAArbic33">GTA V - ArabicGuy 1.33</button>
+          <button data-func="load_Oysters100">RDR2 - OystersMenu 1.00</button>
+          <button data-func="load_Oysters113">RDR2 - OystersMenu 1.13</button>
+          <button data-func="load_Oysters119">RDR2 - OystersMenu 1.19</button>
+          <button data-func="load_Oysters124">RDR2 - OystersMenu 1.24</button>
         </div>
       </div>
-
       <div id="payloads-linux" style="display: none;">
         <h2>لينكس</h2>
         <div id="button-container">
-          <button data-func="load_Linux">لينكس - 1 جيجا</button>
-          <button data-func="load_Linux2gb">لينكس - 2 جيجا</button>
-          <button data-func="load_Linux3gb">لينكس - 3 جيجا</button>
-          <button data-func="load_Linux4gb">لينكس - 4 جيجا</button>
-          <button data-func="load_Linux5gb">لينكس - 5 جيجا</button>
+          <button data-func="load_Linux">لينكس 1GB</button>
+          <button data-func="load_Linux2gb">لينكس 2GB</button>
+          <button data-func="load_Linux3gb">لينكس 3GB</button>
+          <button data-func="load_Linux4gb">لينكس 4GB</button>
+          <button data-func="load_Linux5gb">لينكس 5GB</button>
         </div>
       </div>
     </div>
 
     <h3>وحدة التصحيح</h3>
-
-    <div class="console" style="padding: 20px;">
-      <pre id='console'></pre>
-    </div>
+    <div class="console" style="padding: 20px;"><pre id='console'></pre></div>
 
     <!-- نافذة حول -->
     <div class="overlay" id="overlay-popup"></div>
     <div class="popup" id="about-popup">
-      <h2>حول PSFree</h2>
+      <h2>معرض اياد القريشي</h2>
       <p>الإصدار: 9.00</p>
-      <p>واجهة ويب بسيطة لكسر حماية PS4.</p>
+      <p>معرض اياد القريشي لبيع اجهزة الالعاب وتعديل اجهزه وتنصيب العاب اجهزه معدله للتواصل </p>
       <button onclick="closeabout()" id="close-about">إغلاق</button>
     </div>
 
-    <script src="./js/index.js"></script>
+    <script src='./js/index.js'></script>
     <script>CheckFW()</script>
   </body>
 </html>
